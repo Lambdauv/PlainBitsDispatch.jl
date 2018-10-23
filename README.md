@@ -12,24 +12,37 @@ Keyword arguments and optional arguments are handled somewhat gracefully.
 
 ## Examples
 
+Let's first define a struct with a free type parameter:
+
 ```
 julia> struct Y{T} end
+```
 
-julia> @:: function f(::Y{::Float64})
-    println("Got a float")
-end
-_::_f (generic function with 1 method)
+Then, there are two ways to use this package. Option 1:
 
+```
 julia> @:: function f(::Y{T}) where T::Integer
     println(T)
 end
-_::_f (generic function with 2 methods)
+_::_f (generic function with 1 method)
 
 julia> f(Y{42}())
 42
+```
+
+Option 2 is a shorthand syntax, for when you don't care about the value:
+
+```
+julia> @:: function f(::Y{::Float64})
+    println("Got a float")
+end
+_::_f (generic function with 2 methods)
 
 julia> f(Y{2.0}())
 Got a float
+
+julia> f(Y{42}())
+42
 ```
 
 ## Caveats
