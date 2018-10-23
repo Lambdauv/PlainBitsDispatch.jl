@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ajkeller34/PlainBitsDispatch.jl.svg?branch=master)](https://travis-ci.org/ajkeller34/PlainBitsDispatch.jl)
+
 # PlainBitsDispatch.jl
 
 Julia lets you use "plain bits" values (types like `Int`, `Float64`, etc.) as type
