@@ -47,11 +47,12 @@ julia> f(Y{42}())
 
 ## Caveats
 
-Defining a method like e.g. `@:: function f(::Y{::Float64})` or
+- Defining a method like e.g. `@:: function f(::Y{::Float64})` or
 `@:: function f(::Y{T}) where T::Float64` will actually define a method
 `function f(::Y{T}) where T`, so if you've defined that already or plan to define it, you
 will run into trouble. You can get around this to some extent by defining
 `@:: function f(::Y{::Type})` though perhaps the behavior is not exactly the same.
+- You can't define type aliases. For example, `@:: Z = Y{::Int}` does not and cannot work without changes to Julia.
 
 ## How does it work?
 
